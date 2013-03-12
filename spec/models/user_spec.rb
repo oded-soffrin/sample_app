@@ -75,6 +75,21 @@ describe User do
     it { should_not be_valid }
   end
 
+
+  describe "with a upcase email" do
+    before {
+      user_with_upcase_email = @user.dup
+      user_with_upcase_email.email.upcase!
+      user_with_upcase_email.save
+    }
+    let(:found_user) {User.find_by_email(@user.email) }
+
+
+    it "should be down case" do
+        found_user.should_not == nil
+    end
+  end
+
   describe "when password is not present" do
     before { @user.password = @user.password_confirmation = " " }
     it { should_not be_valid }
@@ -110,5 +125,6 @@ describe User do
       specify { user_for_invalid_password.should be_false }
     end
   end
+
 
 end
