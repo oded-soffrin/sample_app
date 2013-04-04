@@ -14,6 +14,8 @@ SampleApp::Application.routes.draw do
 
   #users resources
   resources :users
+  resources :microposts, only: [:create, :destroy]
+
   get '/signup', to: 'users#new'
 
 end
