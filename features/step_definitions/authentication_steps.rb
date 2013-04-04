@@ -16,7 +16,7 @@ Given /^the user has an account$/ do
 end
 
 When /^the user submits valid signin information$/ do
-  valid_signin(@user)
+  sign_in(@user)
 end
 
 Then /^he should see his profile page$/ do

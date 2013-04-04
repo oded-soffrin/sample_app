@@ -15,7 +15,7 @@
         <%= f.label :password_confirmation, 'Confirm Password' %>
         <%= f.password_field :password_confirmation %>
 
-        <% submit_message = (@user.new_record? == :new) ? 'Create my account' : 'Save changes'   %>
+        <% submit_message = (@user.new_record?) ? 'Create my account' : 'Save changes'   %>
         <%= f.submit submit_message, class: 'btn btn-large btn-primary' %>
     <% end %>
 
