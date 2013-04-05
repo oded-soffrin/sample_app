@@ -13,8 +13,14 @@ SampleApp::Application.routes.draw do
   get '/contact', to: 'static_pages#contact'
 
   #users resources
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
+
 
   get '/signup', to: 'users#new'
 
